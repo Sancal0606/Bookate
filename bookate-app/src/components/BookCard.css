@@ -1,0 +1,8 @@
+.book_card{
+    max-width: 800;
+    height: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #EBD8D0;
+}

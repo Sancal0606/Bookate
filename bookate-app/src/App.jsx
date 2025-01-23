@@ -1,9 +1,10 @@
 import "./App.css";
 import BookCard from "./components/BookCard";
+import BookSwap from "./components/BookSwap";
 
 function App() {
   return <>
-    <BookCard></BookCard>
+    <BookSwap></BookSwap>
   </>;
 }
 
