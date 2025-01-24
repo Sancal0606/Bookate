@@ -24,11 +24,10 @@ const BookCard = ({ id,author, title, cover, description, cards, setCards }) => 
   })
 
   const handleDragEnd = () => {
-    console.log(cards[cards.length - 1]);
+    console.log(title);
     if (Math.abs(x.get()) > 50) {
       const arrCartas = cards.filter((card) => card.id !== id);
       setCards(arrCartas);
-      console.log(cards.length)
     }
   };
 
