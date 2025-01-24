@@ -17,7 +17,7 @@ class BookController extends AbstractController{
     }
 
     private async getAll(req: Request, res: Response){
-        let books = await db["Book"].findAll();
+        let books = await db["book"].findAll();
         res.status(200).json(books);
     }
 }

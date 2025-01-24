@@ -12,13 +12,18 @@ let sequelize: any;
 
 if (env === "development")
   sequelize = new Sequelize(
-    "ts-res",
+    "bookate",
     "root",
     "Sancal/1",
     {
       dialect: "mysql",
       host: "localhost",
-
+      define: {
+        // Evitar que nos ponga createdAT y updatedAt
+        timestamps: false,
+        // Evitar que agregue una s al final
+        freezeTableName: true,
+      }
     }
   );
 

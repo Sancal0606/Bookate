@@ -39,7 +39,7 @@ module.exports = (sequelize:any, DataTypes: any) => {
             }
         },{
             sequelize,
-            modelName:"Book"
+            modelName:"book"
         }
     );
     return Book;
