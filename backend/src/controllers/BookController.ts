@@ -14,11 +14,24 @@ class BookController extends AbstractController{
 
     protected initializeRoutes(): void {
         this.router.get("/all",this.getAll.bind(this));
+        this.router.post("/create",this.createBook.bind(this));
     }
 
     private async getAll(req: Request, res: Response){
         let books = await db["book"].findAll();
         res.status(200).json(books);
+    }
+
+    private async createBook(req:Request, res: Response){
+        try{
+            const asign = await db["book"].create(req.body);
+            console.log("Assign Success");
+            res.status(200).json("Assign Success");
+        }catch(err){
+            console.log("error");
+            console.log(err);
+            res.status(500).send("Error on Book controller")
+        }
     }
 }
 export default BookController;
