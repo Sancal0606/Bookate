@@ -15,6 +15,14 @@ module.exports = (sequelize:any, DataTypes: any) => {
         public author!: string;
         public description!: string;
         public cover!: string;
+
+        static associate(models:any){
+            Book.belongsToMany(models.reader,{
+                through:"bookReader",
+                foreignKey:"idBook",
+                otherKey: "idReader"
+            })
+        }
     }
 
     Book.init(
