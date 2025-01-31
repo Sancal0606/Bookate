@@ -14,12 +14,40 @@ class BookController extends AbstractController{
 
     protected initializeRoutes(): void {
         this.router.get("/all",this.getAll.bind(this));
+        this.router.get("/books2read",this.get10.bind(this));
         this.router.post("/create",this.createBook.bind(this));
     }
 
     private async getAll(req: Request, res: Response){
         let books = await db["book"].findAll();
         res.status(200).json(books);
+    }
+
+    private async get10(req: Request, res:Response){
+        try{
+            const {Op} = require("sequelize")
+            const idReaderTarget = req.query.idReader;
+            console.log("consultando libros del reader ->>"+idReaderTarget)
+            const booksReadByReader = await db["bookReader"].findAll({
+                attributes:["idBook"],
+                where : {idReader:idReaderTarget}
+            })
+            const readBooksIds = booksReadByReader.map((book:any) => book.idBook);
+            
+            const books = await db["book"].findAll({
+                
+                where: {
+                    idBook:{[Op.notIn]: readBooksIds}
+                },
+                limit:20
+            })
+            res.status(200).json(books);
+        }catch(err){
+            console.log("error");
+            console.log(err);
+            res.status(500).send("Error on Book controller")
+        }
+        
     }
 
     private async createBook(req:Request, res: Response){

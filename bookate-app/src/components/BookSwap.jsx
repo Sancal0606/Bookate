@@ -6,7 +6,7 @@ const BookSwap = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/book/all")
+    fetch("http://localhost:8080/book/books2read?idReader=1")
       .then((response) => response.json())
       .then((data) => {
         const arrNuev = data.map((book) => {
