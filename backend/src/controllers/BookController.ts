@@ -39,7 +39,7 @@ class BookController extends AbstractController{
                 where: {
                     idBook:{[Op.notIn]: readBooksIds}
                 },
-                limit:20
+                limit:10
             })
             res.status(200).json(books);
         }catch(err){

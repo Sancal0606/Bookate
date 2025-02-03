@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import CardMedia from "@mui/material/CardMedia";
+import TextTruncate from "react-text-truncate"; // recommend
 import {
   motion,
   useMotionValue,
@@ -118,7 +119,13 @@ const BookCard = ({
         <Box sx={{ width: 400, margin: "20px" }}>
           <h2 className="text-lg">{author}</h2>
           <h1 className="text-[50px]">{title}</h1>
-          <h4>{description}</h4>
+          <TextTruncate
+            line={5}
+            element="span"
+            truncateText="..."
+            text={description}
+            textTruncateChild={<a href="#">Reading on</a>}
+          />
         </Box>
         <img
           style={{

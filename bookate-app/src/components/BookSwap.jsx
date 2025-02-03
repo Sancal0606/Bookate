@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 const BookSwap = () => {
   const [cards, setCards] = useState([]);
 
-  useEffect(() => {
+  const getBooksApi = () => {
     fetch("http://localhost:8080/book/books2read?idReader=1")
       .then((response) => response.json())
       .then((data) => {
@@ -23,7 +23,20 @@ const BookSwap = () => {
         setCards(arrNuev);
       })
       .catch((error) => console.log(error));
-  },[]);
+  };
+
+  useEffect(() => {
+    getBooksApi();
+  }, []);
+
+  const checkCards = (_cards) => {
+    console.log(cards.length)
+    if (cards.length == 1) {
+      getBooksApi();
+    } else {
+      setCards(_cards);
+    }
+  };
 
   return (
     <div className="grid place-items-center">
@@ -32,7 +45,7 @@ const BookSwap = () => {
           <BookCard
             key={card.id}
             cards={cards}
-            setCards={setCards}
+            setCards={checkCards}
             {...card}
           ></BookCard>
         );
