@@ -114,6 +114,7 @@ const BookCard = ({
           margin: "20px",
           gridRow: "1",
           gridColumn: "1",
+          zIndex:"1"
         }}
       >
         <Box sx={{ width: 400, margin: "20px" }}>

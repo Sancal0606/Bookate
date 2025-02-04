@@ -2,16 +2,19 @@
 
 .navbar {
   position: sticky;
+  top:0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 61px;
   z-index: 2;
-  margin: 0 10%;
+
+  background-color: var(--color-secondary);
   
 }
 .mainTitle{
     display: flex;
+    margin: 10px;
 }
 .icon{
 
@@ -26,6 +29,7 @@
 
 .menu {
   display: flex;
+  margin: 10px;
 }
 
 .menuItems {
@@ -70,15 +74,17 @@
     align-items: center;
     gap: 13px;
     border-radius: 10px;
-    background: #d2bab1;
+    background: rgb(255, 232, 222);
     background: linear-gradient(
       0deg,
-      rgba(168, 150, 143, 0.3) 0%,
-      #8e7d77 100%
+      rgba(255, 232, 222, 0.8) 20%,
+    rgba(255, 232, 222,1.0) 100%
     );
     padding: 24px 33px;
     box-shadow: 0 0 4px 0 rgba(168, 150, 143, 0.3);
   }
+
+
 
   .menuOpen{
     display: flex;
