@@ -39,7 +39,7 @@ const BookCard = ({
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.stringify({ idBook, idReader: 1, isInterest: "false" }),
+    body: JSON.stringify({ idBook, idReader: 2, isInterest: "false" }),
   };
 
   const optionsRight = {
@@ -47,7 +47,7 @@ const BookCard = ({
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.stringify({ idBook, idReader: 1, isInterest: "true" }),
+    body: JSON.stringify({ idBook, idReader: 2, isInterest: "true" }),
   };
 
   const handleDragEnd = () => {
