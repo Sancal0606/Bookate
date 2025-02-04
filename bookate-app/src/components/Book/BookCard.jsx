@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
-import CardMedia from "@mui/material/CardMedia";
+import styles from "./BookCard.module.css";
 import TextTruncate from "react-text-truncate"; // recommend
 import {
   motion,
@@ -10,7 +10,7 @@ import {
   useTransform,
 } from "framer-motion";
 
-import { getImageUrl } from "../utils";
+import { getImageUrl } from "../../utils";
 import { body } from "motion/react-client";
 const BookCard = ({
   id,
@@ -102,31 +102,11 @@ const BookCard = ({
       }}
       onDragEnd={handleDragEnd}
     >
-      <Card
-        sx={{
-          maxWidth: 800,
-          height: 400,
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          background: " #EBD8D0",
-          fontFamily: "Sofia",
-          margin: "20px",
-          gridRow: "1",
-          gridColumn: "1",
-          zIndex:"1"
-        }}
-      >
+      <div className={styles.card}>
         <Box sx={{ width: 400, margin: "20px" }}>
-          <h2 className="text-lg">{author}</h2>
-          <h1 className="text-[50px]">{title}</h1>
-          <TextTruncate
-            line={5}
-            element="span"
-            truncateText="..."
-            text={description}
-            textTruncateChild={<a href="#">Reading on</a>}
-          />
+          <h2 className={styles.author}>{author}</h2>
+          <h1 className={styles.title}>{title}</h1>
+          <p className={styles.desc}>{description}</p>
         </Box>
         <img
           style={{
@@ -138,7 +118,7 @@ const BookCard = ({
           src={cover}
           title="green iguana"
         />
-      </Card>
+      </div>
     </motion.div>
   );
 };

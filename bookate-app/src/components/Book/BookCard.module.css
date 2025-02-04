@@ -1,0 +1,39 @@
+@import "../../vars.css";
+
+.card{
+    max-width: 800;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #EBD8D0;
+    z-index: 1;
+    font-family: "Sofia";
+    margin: 20px;
+    grid-row: 1;
+    grid-column: 1;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.25);
+}
+
+.desc{
+    font-family: var(--font-inria);
+    font-size: 15px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.title{
+    font-family: var(--font-inria);
+    font-weight: bold;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.author{
+    font-family: var(--font-inria);
+    font-weight: 300;
+    font-size: 20px;
+    text-transform: uppercase;
+}

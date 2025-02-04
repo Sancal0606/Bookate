@@ -1,7 +1,6 @@
 import { linearGradient } from "motion/react-client";
 import styles from "./App.module.css";
-import BookCard from "./components/BookCard";
-import BookSwap from "./components/BookSwap";
+import BookSwap from "./components/Book/BookSwap";
 import Navbar from "./components/Navbar/Navbar";
 import About from "./components/About/About";
 

@@ -75,7 +75,7 @@
     min-width: 350px;
     min-height: 350px;
     top:-128px;
-    left: -10vw;
+    left: -50vw;
     border-radius: 764px;
     background: rgba(255, 198, 180, 0.867);
     filter:blur(100px);
@@ -88,7 +88,7 @@
     height: 50vw;
     min-width: 250px;
     min-height: 350px;
-    top:246px;
+    top: 300px;
     right: -25vw;
     border-radius: 764px;
     background: rgba(255, 198, 180, 0.867);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BookCard from "./BookCard";
+import styles from "./BookSwap.module.css";
 import { v4 as uuidv4 } from "uuid";
 
 const BookSwap = () => {
@@ -30,7 +31,7 @@ const BookSwap = () => {
   }, []);
 
   const checkCards = (_cards) => {
-    console.log(cards.length)
+    console.log(cards.length);
     if (cards.length == 1) {
       getBooksApi();
     } else {
@@ -39,7 +40,7 @@ const BookSwap = () => {
   };
 
   return (
-    <div className="grid place-items-center">
+    <section className={styles.books} id="books">
       {cards.map((card) => {
         return (
           <BookCard
@@ -50,7 +51,9 @@ const BookSwap = () => {
           ></BookCard>
         );
       })}
-    </div>
+      <div className={styles.topBlur} />
+      <div className={styles.bottomBlur} />
+    </section>
   );
 };
 

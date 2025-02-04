@@ -1,0 +1,25 @@
+@import "../../vars.css";
+
+.books{
+    min-height: 500px;
+    margin-top: 30px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    background: var(--color-secondary);
+}
+
+.topBlur{
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    min-width: 350px;
+    min-height: 350px;
+    top:-128px;
+    left: 50vw;
+    border-radius: 764px;
+    background: rgba(42, 15, 123, 0.1);
+    filter:blur(100px);
+    z-index: -1;
+}
