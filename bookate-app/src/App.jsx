@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import BookSwap from "./components/Book/BookSwap";
 import Navbar from "./components/Navbar/Navbar";
 import About from "./components/About/About";
+import Match from "./components/Match/Match"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Navbar></Navbar>
       <About></About>
       <BookSwap></BookSwap>
+      <Match></Match>
     </div>
   );
 }

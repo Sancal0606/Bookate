@@ -1,0 +1,29 @@
+@import "../../vars.css";
+
+.section{
+    align-items: center;
+}
+
+.title{
+    font-family: var(--font-inria);
+    font-weight: 800;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: var(--color-text);
+    background-color: var(--color-primary);
+    border-radius: 50px;
+    padding: 17px 26px;
+    margin: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.title:hover{
+    background-image: linear-gradient(
+        90deg,
+        rgba(223, 146, 125, 0.673) 0%,
+        rgba(255,255,255,0) 100%
+    );
+}
+
