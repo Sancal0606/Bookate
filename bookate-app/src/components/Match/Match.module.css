@@ -7,7 +7,7 @@
 .title{
     font-family: var(--font-inria);
     font-weight: 800;
-    font-size: 80px;
+    font-size: 40px;
     text-transform: uppercase;
     color: var(--color-text);
     background-color: var(--color-primary);

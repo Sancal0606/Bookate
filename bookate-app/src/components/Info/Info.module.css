@@ -1,0 +1,35 @@
+@import "../../vars.css";
+
+.container{
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color-primary);
+}
+
+.content{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.logo{
+    width: 100px;
+    margin:10px;
+}
+
+.logoTwitter{
+    width: 50px;
+    margin:10px;
+}
+
+.text{
+    font-family: var(--font-inria);
+    color: var(--color-text);
+    font-size: 32px;
+}
+
