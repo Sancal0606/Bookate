@@ -1,11 +1,13 @@
 import { linearGradient } from "motion/react-client";
-import "./App.css";
+import styles from "./App.module.css";
 import BookCard from "./components/BookCard";
 import BookSwap from "./components/BookSwap";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <div >
+    <div className={styles.App}>
+      <Navbar></Navbar>
       <BookSwap></BookSwap>
     </div>
   );
