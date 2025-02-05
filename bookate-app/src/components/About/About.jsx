@@ -11,7 +11,6 @@ const About = () => {
         </div>
         <img className={styles.logo} src={getImageUrl("Icon.png")} alt="Icon"/>
         <div className={styles.topBlur}/>
-        <div className={styles.bottomBlur}/>
     </section>
   )
 }
