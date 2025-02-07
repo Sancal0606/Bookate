@@ -9,7 +9,11 @@ const About = () => {
             <p className={styles.description}>Your page to choose your next book to read</p>
             <a className={styles.login} href=''>Login</a>
         </div>
-        <img className={styles.logo} src={getImageUrl("Icon.png")} alt="Icon"/>
+        <div className={styles.logo}>
+          <img className={styles.icon} src={getImageUrl("Icon.png")} alt="Icon"/>
+          <img className={styles.shadow} src={getImageUrl("Shadow.png")} alt="Icon"/>
+        </div>
+        
         <div className={styles.topBlur}/>
     </section>
   )

@@ -14,14 +14,14 @@ const Info = () => {
           src={getImageUrl("emailIcon.png")}
           className={styles.logoMail}
         ></img>
-        <h1 className={styles.text}>carloz1.2.sanchez@gmail.com</h1>
+        <a className={styles.text} href="mailto: carloz1.2.sanchez@gmail.com">carloz1.2.sanchez@gmail.com</a>
       </div>
       <div className={styles.content}>
         <img
           src={getImageUrl("twitter.png")}
           className={styles.logoTwitter}
         ></img>
-        <h1 className={styles.text}>Carloz1Sanchez</h1>
+        <a className={styles.text} href="https://x.com/Carloz1Sanchez">Carloz1Sanchez</a>
       </div>
     </section>
   );

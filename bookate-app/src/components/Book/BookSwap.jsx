@@ -51,7 +51,7 @@ const BookSwap = () => {
           ></BookCard>
         );
       })}
-      <div className={styles.topBlur} />
+      
     </section>
   );
 };
