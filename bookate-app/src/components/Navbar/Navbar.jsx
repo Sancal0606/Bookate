@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { getImageUrl } from "../../utils";
 import styles from "./Navbar.module.css";
 
-const Navbar = () => {
+const Navbar = ({ isLogin }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className={styles.navbar}>
-      <a className={styles.mainTitle}  href="/">
-        <div className={styles.title}>
-          Bookate
-        </div>
+      <a className={styles.mainTitle} href="/">
+        <div className={styles.title}>Bookate</div>
         <img className={styles.icon} src={getImageUrl("Icon.png")}></img>
       </a>
 
@@ -31,12 +29,20 @@ const Navbar = () => {
           <li>
             <a href="#about">About</a>
           </li>
-          <li>
-            <a href="#books">Books</a>
-          </li>
-          <li>
-            <a href="#match">Match</a>
-          </li>
+          {isLogin === false ? (
+            <li>
+              <a href="#login">Log In</a>
+            </li>
+          ) : (
+            <div className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}>
+              <li>
+                <a href="#books">Books</a>
+              </li>
+              <li>
+                <a href="#match">Match</a>
+              </li>
+            </div>
+          )}
           <li>
             <a href="#info">Info</a>
           </li>

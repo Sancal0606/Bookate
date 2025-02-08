@@ -89,7 +89,7 @@
     }
     50%{
         transform: scale(0.5);
-            -webkit-transform: scale(0.5);
+            -webkit-transform: scale(0.4);
     }
     100%{
         transform: scale(0.2);
