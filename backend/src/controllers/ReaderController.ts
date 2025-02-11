@@ -19,6 +19,7 @@ class ReaderController extends AbstractController {
   }
 
   private async postAssignBook(req: Request, res: Response) {
+    console.log("Assign")
     console.log(req.body);
     try {
       const asign = await db["bookReader"].create(req.body);
@@ -32,6 +33,7 @@ class ReaderController extends AbstractController {
   }
 
   private async postUser(req: Request, res: Response) {
+    console.log("Here");
     console.log(req.body);
     try {
       const assign = await db["reader"].create(req.body);

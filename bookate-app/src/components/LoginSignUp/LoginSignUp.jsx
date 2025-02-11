@@ -23,17 +23,14 @@ const LoginSignUp = ({ setLogIn }) => {
     setPassword(event.target.value);
   };
 
-  const optionsPost = {
-    method: "POST",
-    header: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify({
-      name: "TestName",
-      mail: "TestMail",
-      password: "TestPassword",
-    }),
-  };
+    const optionsPost = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ name, mail, password}),
+    };
+
 
   const handleSubmit = () => {
     if (action === "Sign Up") {
