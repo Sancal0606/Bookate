@@ -11,17 +11,17 @@ import { useState } from "react";
 function App() {
   const [logIn, SetLogIn] = useState(false);
   const [idUser, SetIdUser] = useState();
-
+  const [userName, SetName] = useState('');
   return (
     <section className={styles.App} id="about">
-      <Navbar isLogin={logIn}></Navbar>
+      <Navbar isLogin={logIn} user = {userName}></Navbar>
       <About isLogin={logIn}></About>
       {logIn === false ? (
-        <LoginSignUp setLogIn={SetLogIn} setId={SetIdUser}></LoginSignUp>
+        <LoginSignUp setLogIn={SetLogIn} setId={SetIdUser} setUsername = {SetName}></LoginSignUp>
       ) : (
         <div>
-          <BookSwap ></BookSwap>
-          <Match></Match>
+          <BookSwap userId={idUser}></BookSwap>
+          <Match idUser={idUser}></Match>
         </div>
       )}
 

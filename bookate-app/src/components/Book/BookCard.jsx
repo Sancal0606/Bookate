@@ -21,6 +21,7 @@ const BookCard = ({
   description,
   cards,
   setCards,
+  readerId
 }) => {
   const x = useMotionValue(0);
 
@@ -39,7 +40,7 @@ const BookCard = ({
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.stringify({ idBook, idReader: 2, isInterest: "false" }),
+    body: JSON.stringify({ idBook, idReader: readerId, isInterest: "false" }),
   };
 
   const optionsRight = {
@@ -47,7 +48,7 @@ const BookCard = ({
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.stringify({ idBook, idReader: 2, isInterest: "true" }),
+    body: JSON.stringify({ idBook, idReader: readerId, isInterest: "true" }),
   };
 
   const handleDragEnd = () => {

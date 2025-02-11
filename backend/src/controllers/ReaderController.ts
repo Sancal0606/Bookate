@@ -16,6 +16,7 @@ class ReaderController extends AbstractController {
     this.router.post("/assign", this.postAssignBook.bind(this));
     this.router.post("/user",this.postUser.bind(this));
     this.router.get("/login",this.getLogIn.bind(this));
+    this.router.get("/id",this.userId.bind(this));
   }
 
   private async postAssignBook(req: Request, res: Response) {
@@ -46,6 +47,22 @@ class ReaderController extends AbstractController {
     }
   }
 
+  private async userId(req: Request, res:Response){
+    try{
+      const input_mail = req.query.mail
+      const user = await db["reader"].findOne({
+        where:{
+          mail:input_mail
+        }
+      });
+      if(user){
+        res.status(200).json(user.idReader);
+      }
+    }catch(err){
+      res.status(500).json(err);
+    }
+  }
+
   private async getLogIn(req: Request, res: Response) {
     try {
       const { Op } = require("sequelize");
@@ -67,7 +84,7 @@ class ReaderController extends AbstractController {
         res.status(200).json("User not found");
       } else {
         console.log("User found");
-        res.status(200).json(finalUser.idReader);
+        res.status(200).json({id:finalUser.idReader,name:finalUser.name});
       }
     } catch (err) {
       console.log("error");

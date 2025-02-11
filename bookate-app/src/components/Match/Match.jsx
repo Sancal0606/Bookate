@@ -4,12 +4,32 @@ import { useEffect, useState } from "react";
 import BookMatch from "./BookMatch";
 import { v4 as uuidv4 } from "uuid";
 
-const Match = () => {
+const Match = ({ idUser }) => {
+  const [matchUser, setMatch] = useState("");
   const [books, setBooks] = useState([]);
-  const getMatch = () => {
-    console.log("Match");
+  const [idMatch, setIdMatch] = useState("");
 
-    fetch("http://localhost:8080/book/match?idReader1=1&idReader2=2")
+  const modifyMatch = (event) => {
+    setMatch(event.target.value);
+  };
+
+  const getMatch = () => {
+    fetch(`http://localhost:8080/reader/id?mail=${matchUser}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setIdMatch(data);
+        console.log(data);
+        getMatchAux(data);
+      })
+      .catch((error) => console.log(error));
+   
+  };
+
+  const getMatchAux = (data) => {
+    console.log(data);
+    fetch(
+      `http://localhost:8080/book/match?idReader1=${idUser}&idReader2=${data}`
+    )
       .then((response) => response.json())
       .then((data) => {
         const arrNuev = data.map((book) => {
@@ -23,16 +43,23 @@ const Match = () => {
         setBooks(arrNuev);
       })
       .catch((error) => console.log(error));
-  };
+  }
 
   return (
     <section id="match" className={styles.section}>
-      <div
-        className={styles.title}
-        onClick={getMatch}
-      >
-        Match
+      <div className={styles.matchContainer}>
+        <div className={styles.input}>
+          <input
+            type="text"
+            placeholder="match with"
+            onChange={modifyMatch}
+          ></input>
+        </div>
+        <div className={styles.title} onClick={getMatch}>
+          Match
+        </div>
       </div>
+
       <BookMatch books={books}></BookMatch>
     </section>
   );

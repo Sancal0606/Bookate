@@ -4,7 +4,7 @@ import { getImageUrl } from "../../utils";
 import { v4 as uuidv4 } from "uuid";
 import { header } from "motion/react-client";
 
-const LoginSignUp = ({ setLogIn, setId }) => {
+const LoginSignUp = ({ setLogIn, setId, setUsername }) => {
   const [action, setAction] = useState("Login");
 
   const [name, setName] = useState("");
@@ -13,6 +13,7 @@ const LoginSignUp = ({ setLogIn, setId }) => {
 
   const modifyName = (event) => {
     setName(event.target.value);
+    console.log(name);
   };
 
   const modifyMail = (event) => {
@@ -48,9 +49,12 @@ const LoginSignUp = ({ setLogIn, setId }) => {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          if (data) {
-            setId(data);
+          if (data === "User not found") {
+            console.log("User not found");
+          }else{
+            setId(data.id);
             setLogIn(true);
+            setUsername(data.name)
           }
         })
         .catch((error) => console.log(error));

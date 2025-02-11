@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { getImageUrl } from "../../utils";
 import styles from "./Navbar.module.css";
 
-const Navbar = ({ isLogin }) => {
+const Navbar = ({ isLogin, user }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className={styles.navbar}>
       <a className={styles.mainTitle} href="/">
         <div className={styles.title}>Bookate</div>
         <img className={styles.icon} src={getImageUrl("Icon.png")}></img>
+        <div className={styles.title}>{user}</div>
       </a>
 
       <div className={styles.menu}>

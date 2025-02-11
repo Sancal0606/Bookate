@@ -3,11 +3,11 @@ import BookCard from "./BookCard";
 import styles from "./BookSwap.module.css";
 import { v4 as uuidv4 } from "uuid";
 
-const BookSwap = () => {
+const BookSwap = ({userId}) => {
   const [cards, setCards] = useState([]);
 
   const getBooksApi = () => {
-    fetch("http://localhost:8080/book/books2read?idReader=2")
+    fetch(`http://localhost:8080/book/books2read?idReader=${userId}`)
       .then((response) => response.json())
       .then((data) => {
         const arrNuev = data.map((book) => {
@@ -47,6 +47,7 @@ const BookSwap = () => {
             key={card.id}
             cards={cards}
             setCards={checkCards}
+            readerId={userId}
             {...card}
           ></BookCard>
         );
