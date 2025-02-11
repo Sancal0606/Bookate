@@ -64,10 +64,10 @@ class ReaderController extends AbstractController {
 
       if (finalUser === null) {
         console.log("User not found");
-        res.status(500).json("User not found");
+        res.status(200).json("User not found");
       } else {
         console.log("User found");
-        res.status(200).json("User found");
+        res.status(200).json(finalUser.idReader);
       }
     } catch (err) {
       console.log("error");

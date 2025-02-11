@@ -4,7 +4,7 @@ import { getImageUrl } from "../../utils";
 import { v4 as uuidv4 } from "uuid";
 import { header } from "motion/react-client";
 
-const LoginSignUp = ({ setLogIn }) => {
+const LoginSignUp = ({ setLogIn, setId }) => {
   const [action, setAction] = useState("Login");
 
   const [name, setName] = useState("");
@@ -23,19 +23,18 @@ const LoginSignUp = ({ setLogIn }) => {
     setPassword(event.target.value);
   };
 
-    const optionsPost = {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ name, mail, password}),
-    };
-
+  const optionsPost = {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({ name, mail, password }),
+  };
 
   const handleSubmit = () => {
     if (action === "Sign Up") {
       console.log(optionsPost.body);
-    
+
       fetch("http://localhost:8080/reader/user", optionsPost)
         .then((response) => response.json())
         .then((data) => {
@@ -43,9 +42,19 @@ const LoginSignUp = ({ setLogIn }) => {
         })
         .catch((error) => console.log(error));
     } else {
-      //fetch(`/assets/${path}`)
+      fetch(
+        `http://localhost:8080/reader/login?mail=${mail}&password=${password}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          if (data) {
+            setId(data);
+            setLogIn(true);
+          }
+        })
+        .catch((error) => console.log(error));
     }
-    setLogIn(true);
   };
 
   return (
